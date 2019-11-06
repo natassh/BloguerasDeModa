@@ -2,9 +2,6 @@
 /* Commons */
 @import 'commons.css';
 
-/* Global variables */
-@import 'global-var.css';
-
 body {
   /*overflow: auto;*/
   padding: 0;

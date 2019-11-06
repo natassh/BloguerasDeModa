@@ -1,4 +1,32 @@
 import React from 'react';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+
+import Home from '../pages/Home/Home';
+import Detail from '../pages/Detail/Detail';
+
+import './styles/app.css';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <section>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/detail" component={Detail} />
+            </Switch>
+          </Router>
+        </section>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+/*
+import React from 'react';
 
 class App extends React.Component {
   componentDidMount = () => {
@@ -26,7 +54,7 @@ class App extends React.Component {
 }
 
 export default App;
-
+*/
 /*
 // OPCION 2
     const endoPoint =
