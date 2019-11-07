@@ -39,24 +39,21 @@ class App extends React.Component {
 }
 
 export default App;
-
 /*
 import React from 'react';
 
 class App extends React.Component {
   componentDidMount = () => {
     // OPCION 1
-    const endoPoint =
-      'https://api.airtable.com/v0/app7a24aZSpdSNeO7/Blogueras?api_key=keyVRnE63H7lG8smk';
+    const endoPoint = 'https://api.airtable.com/v0/app7a24aZSpdSNeO7/Blogueras';
     const options = {
-      method: 'GET',
       headers: {
         Accept: 'application/json',
         Authorization: 'Bearer keyVRnE63H7lG8smk'
       }
     };
     //const API_URL ='https://api.airtable.com/v0/app7a24aZSpdSNeO7/Blogueras';
-    fetch(endoPoint + options)
+    fetch(endoPoint, options)
       .then(res => res.json())
       .then(data => {
         console.log(data);
