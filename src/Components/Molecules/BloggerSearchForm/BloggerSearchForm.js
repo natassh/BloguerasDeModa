@@ -7,7 +7,7 @@ import './BloggerSearchForm.css';
 
 function BloggerSearchForm() {
   return (
-    <form className="blogger-search-form">
+    <form className="BloggerSearchForm">
       <Input />
       <ButtonSearch type="submit" value="Buscar" />
     </form>
