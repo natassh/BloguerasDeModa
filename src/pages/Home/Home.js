@@ -11,7 +11,9 @@ import './Home.css';
 function Home() {
   return (
     <>
-      <Title className="title">Blogueras de moda</Title>
+      <Title className="Title">
+        <strong>Blogueras</strong> de moda
+      </Title>
       <Link to="/detail">Detalle</Link>
       <BloggerSearchForm />
       <ListOfBloggers />

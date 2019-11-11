@@ -11,18 +11,18 @@
 .stack__title {
   margin: 0;
   padding: 0;
-  color: var(--bg-main);
+  color: #fff;
   font-size: 0.8rem;
   font-family: var(--font);
   font-weight: var(--regular);
   letter-spacing: 2px;
   text-transform: uppercase;
-  background-color: var(--color-second);
+  background-color: var(--color-text);
   padding: 5px 55px 5px 55px;
   transition: all 0.2s ease-in-out;
 }
 .stack:hover .stack__title {
-  background-color: var(--color-title);
+  background-color: var(--color-second);
   transform: scale(1.1);
 }
 

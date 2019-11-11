@@ -1,0 +1,13 @@
+.BloggerSearchForm__Input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-height: 3rem;
+  width: 40%;
+  border: solid 2px var(--color-text);
+  font-family: var(--second-font);
+  padding: 0 0.6rem 0 0.6rem;
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-right: 0.6rem;
+}

@@ -1,9 +1,7 @@
 :root {
-  --bg-main: #fff4ea;
-  --color-second: #ff8071;
+  --color-main: #fff;
+  --color-second: #f94447;
   --color-text: #020009;
-  --color-title: #344ba6;
-  --color-error: #d90714;
 
   --main-font: 'Montserrat', sans-serif;
   --second-font: 'Playfair Display', serif;

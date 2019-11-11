@@ -8,7 +8,7 @@ function ButtonSearch({ type, value }) {
     <input
       type={type}
       value={value}
-      className="blogger-search-form__button-search"
+      className="BloggerSearchForm__ButtonSearch"
     />
   );
 }

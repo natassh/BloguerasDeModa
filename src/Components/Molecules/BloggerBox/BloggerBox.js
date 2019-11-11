@@ -2,38 +2,16 @@ import React from 'react';
 
 import './BloggerBox.css';
 
-function BloggerBox() {
+function BloggerBox({ src, name }) {
   return (
-    <>
-      <article>
+    <article className="ListOfBloggers__BloggerBox">
+      <a href="#">
         <figure>
-          <img src="" />
+          <img src={src} />
         </figure>
-        <h2>Nombre de la bloguera</h2>
-        <a href="#"> Ira al detalle </a>
-      </article>
-      <article>
-        <figure>
-          <img src="" />
-        </figure>
-        <h2>Nombre de la bloguera</h2>
-        <a href="#"> Ira al detalle </a>
-      </article>
-      <article>
-        <figure>
-          <img src="" />
-        </figure>
-        <h2>Nombre de la bloguera</h2>
-        <a href="#"> Ira al detalle </a>
-      </article>
-      <article>
-        <figure>
-          <img src="" />
-        </figure>
-        <h2>Nombre de la bloguera</h2>
-        <a href="#"> Ira al detalle </a>
-      </article>
-    </>
+        <h2>{name}</h2>
+      </a>
+    </article>
   );
 }
 export default BloggerBox;

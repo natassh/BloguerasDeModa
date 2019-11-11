@@ -3,7 +3,7 @@ import './Input.css';
 
 const Input = () => (
   <input
-    className="BloggerSearchForm__input"
+    className="BloggerSearchForm__Input"
     type="text"
     placeholder="Introduce el nombre de la bloguera"
   />

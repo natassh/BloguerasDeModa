@@ -1,0 +1,12 @@
+.Title {
+  margin: 0;
+  padding: 0;
+  font-family: var(--second-font);
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 2rem 0 1rem 0;
+}
+.Title strong {
+  color: var(--color-second);
+}
