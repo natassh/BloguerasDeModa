@@ -8,13 +8,31 @@ import './ListOfBloggers.css';
 function ListOfBloggers() {
   return (
     <section className="ListOfBloggers">
-      <BloggerBox name="Lovely Pepa" src={image} />
-      <BloggerBox name="Lovely Pepa" src={image} />
-      <BloggerBox name="Lovely Pepa" src={image} />
-      <BloggerBox name="Lovely Pepa" src={image} />
-      <BloggerBox name="Lovely Pepa" src={image} />
-      <BloggerBox name="Lovely Pepa" src={image} />
-      <BloggerBox name="Lovely Pepa" src={image} />
+      <BloggerBox
+        name="Lovely Pepa"
+        src={image}
+        alt="Imagen de la bloguera Lovely Peppa"
+      />
+      <BloggerBox
+        name="Lovely Pepa"
+        src={image}
+        alt="Imagen de la bloguera Lovely Peppa"
+      />
+      <BloggerBox
+        name="Lovely Pepa"
+        src={image}
+        alt="Imagen de la bloguera Lovely Peppa"
+      />
+      <BloggerBox
+        name="Lovely Pepa"
+        src={image}
+        alt="Imagen de la bloguera Lovely Peppa"
+      />
+      <BloggerBox
+        name="Lovely Pepa"
+        src={image}
+        alt="Imagen de la bloguera Lovely Peppa"
+      />
     </section>
   );
 }

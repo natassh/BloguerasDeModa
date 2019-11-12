@@ -5,12 +5,28 @@ import ButtonSearch from '../../Atoms/ButtonSearch';
 
 import './BloggerSearchForm.css';
 
-function BloggerSearchForm() {
-  return (
-    <form className="BloggerSearchForm">
-      <Input />
-      <ButtonSearch type="submit" value="Buscar" />
-    </form>
-  );
+class BloggerSearchForm extends React.Component {
+  state = {
+    bloggerName: ''
+  };
+
+  handleWhenValueInputChange = inputNewValue => {
+    //console.log(inputNewValue);
+    this.setState({ bloggerName: inputNewValue });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const Bloggers = this.props.listBloggers;
+    //console.log(Bloggers);
+  };
+  render() {
+    return (
+      <form className="BloggerSearchForm" onSubmit={this.handleSubmit}>
+        <Input inputChanged={this.handleWhenValueInputChange} />
+        <ButtonSearch type="submit" value="Buscar" />
+      </form>
+    );
+  }
 }
 export default BloggerSearchForm;

@@ -20,6 +20,7 @@ class App extends React.Component {
   handleCloseModal = () => {
     this.setState({ isOpen: false });
   };
+
   render() {
     return (
       <div className="App">

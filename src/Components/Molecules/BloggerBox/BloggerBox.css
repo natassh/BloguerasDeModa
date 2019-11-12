@@ -1,8 +1,8 @@
 .ListOfBloggers__BloggerBox {
   margin: 0 1rem 2rem 1rem;
-  padding: 1rem;
-  background: #fff;
-  border: 2px solid #000;
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  background: var(--bg-);
+  border: 1px solid #000;
   max-width: 300px;
   overflow: hidden;
 }
