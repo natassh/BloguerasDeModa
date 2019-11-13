@@ -10,7 +10,8 @@ import './Home.css';
 
 class Home extends React.Component {
   state = {
-    listBloggers: []
+    listBloggers: [],
+    bloggerSelected: {}
   };
 
   componentDidMount() {
@@ -29,17 +30,27 @@ class Home extends React.Component {
         this.setState({ listBloggers: data });
       });
   }
+
+  handleBlogger = blogger => {
+    //console.log(blogger);
+    this.setState({ bloggerSelected: blogger });
+  };
+
   render() {
-    //console.log(this.state.listBloggers);
+    //console.log(this.state.bloggerSelected);
     const listBloggers = this.state.listBloggers;
+    const blogger = this.state.bloggerSelected;
     return (
       <>
         <Title className="Title">
           <strong>Blogueras</strong> de moda
         </Title>
         <Link to="/detail">Detalle</Link>
-        <BloggerSearchForm listBloggers={listBloggers} />
-        <ListOfBloggers />
+        <BloggerSearchForm
+          listBloggers={listBloggers}
+          onGetBloggerSelected={this.handleBlogger}
+        />
+        <ListOfBloggers blogger={blogger} />
       </>
     );
   }
