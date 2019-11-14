@@ -8,7 +8,7 @@ import './ListOfBloggers.css';
 class ListOfBloggers extends React.Component {
   render() {
     const blogger = this.props.blogger;
-    console.log(typeof blogger); //Object
+    console.log(blogger); //Object
     if (blogger) {
       const name = blogger.fields.name;
       console.log(name); //object
