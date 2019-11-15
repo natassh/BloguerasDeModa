@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './Input.css';
 
 class Input extends React.Component {
@@ -9,8 +11,8 @@ class Input extends React.Component {
     const inputNewValue = e.target.value;
     this.setState({ valueInput: inputNewValue });
 
-    const { inputChanged } = this.props;
-    inputChanged(inputNewValue);
+    const { onChange } = this.props;
+    onChange(inputNewValue);
   };
   render() {
     //console.log(this.state.valueInput);
@@ -27,3 +29,7 @@ class Input extends React.Component {
 }
 
 export default Input;
+
+Input.propTypes = {
+  inputChanged: PropTypes.func
+};

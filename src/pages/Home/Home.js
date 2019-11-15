@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom';
 import Title from '../../Components/Atoms/Title';
 import BloggerSearchForm from '../../Components/Molecules/BloggerSearchForm';
 import ListOfBloggers from '../../Components/Molecules/ListOfBloggers';
+import MessageError from '../../Components/Atoms/MessageError';
 
 import '../../App/styles/app.css';
 import './Home.css';
 
 class Home extends React.Component {
   state = {
-    listBloggers: []
+    listBloggers: [],
+    filteredBloggers: [],
+    errorMessage: ''
   };
 
   componentDidMount() {
@@ -31,24 +34,39 @@ class Home extends React.Component {
   }
 
   handleBlogger = blogger => {
-    console.log(blogger);
-    //this.setState({ listBloggers: results.message });
+    const { listBloggers } = this.state;
+    const listBloggersFiltered = [];
+    listBloggers.records.forEach(bloggerFiltered => {
+      const blog_name = bloggerFiltered.fields.blog_name;
+      const name = bloggerFiltered.fields.name;
+      if (
+        typeof blog_name !== 'undefined' &&
+        (blog_name.toUpperCase() === blogger.toUpperCase() ||
+          name.toUpperCase().includes(blogger.toUpperCase()))
+      ) {
+        listBloggersFiltered.push(bloggerFiltered);
+      } else {
+        const message = 'Ups, a esa chica no la tenemos. Prueba a buscar otra!';
+        this.setState({ errorMessage: message });
+      }
+    });
+    this.setState({ filteredBloggers: listBloggersFiltered });
   };
 
   render() {
-    //console.log(this.state.listBloggers);
-    const listBloggers = this.state.listBloggers;
+    const { filteredBloggers, errorMessage } = this.state;
+    //console.log(this.state.filteredBloggers);
     return (
       <>
         <Title className="Title">
           <strong>Blogueras</strong> de moda
         </Title>
         <Link to="/detail">Detalle</Link>
-        <BloggerSearchForm
-          listBloggers={listBloggers}
-          onGetBloggerSelected={this.handleBlogger}
-        />
-        <ListOfBloggers />
+        <BloggerSearchForm onGetBloggerSelected={this.handleBlogger} />
+        <ListOfBloggers filteredBloggers={filteredBloggers} />
+        {errorMessage !== '' && (
+          <MessageError errorMessage={errorMessage} className="MessageError" />
+        )}
       </>
     );
   }

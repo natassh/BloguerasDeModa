@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Input from '../../Atoms/Input';
 import ButtonSearch from '../../Atoms/ButtonSearch';
@@ -11,33 +12,27 @@ class BloggerSearchForm extends React.Component {
   };
 
   handleWhenValueInputChange = inputNewValue => {
-    //console.log(inputNewValue);
     this.setState({ valueInput: inputNewValue });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    const valueInput = this.state.valueInput; //el valor que meto en el input
-    const bloggersDB = this.props.listBloggers.records; //array db de las blogueras
-    bloggersDB.map(blogger => {
-      const blogName = blogger.fields.blog_name;
-      //console.log(blogName);
-      if (blogName === valueInput.toLowerCase() && blogName !== 'undefined') {
-        const { onGetBloggerSelected } = this.props;
-        onGetBloggerSelected(blogger);
-      } else {
-        return 'no';
-      }
-    });
+    const { valueInput } = this.state;
+    const { onGetBloggerSelected } = this.props;
+    onGetBloggerSelected(valueInput);
   };
 
   render() {
     return (
       <form className="BloggerSearchForm" onSubmit={this.handleSubmit}>
-        <Input inputChanged={this.handleWhenValueInputChange} />
+        <Input onChange={this.handleWhenValueInputChange} />
         <ButtonSearch type="submit" value="Buscar" />
       </form>
     );
   }
 }
 export default BloggerSearchForm;
+
+BloggerSearchForm.propTypes = {
+  onGetBloggerSelected: PropTypes.func
+};

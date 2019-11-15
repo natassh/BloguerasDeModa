@@ -1,51 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import BloggerBox from '../BloggerBox';
-import image from '../../../assets/images/lp.jpg';
 
 import './ListOfBloggers.css';
 
 class ListOfBloggers extends React.Component {
   render() {
-    const blogger = this.props.blogger;
-    console.log(blogger); //Object
-    if (blogger) {
-      const name = blogger.fields.name;
-      console.log(name); //object
-    }
-
-    //const blog_name = name.blog_name;
-    //console.log(blog_name);
-
+    const { filteredBloggers } = this.props;
     return (
       <section className="ListOfBloggers">
-        <BloggerBox
-          name={'Lovely Pepa'}
-          src={image}
-          alt="Imagen de la bloguera Lovely Peppa"
-        />
-        <BloggerBox
-          name="Lovely Pepa"
-          src={image}
-          alt="Imagen de la bloguera Lovely Peppa"
-        />
-        <BloggerBox
-          name="Lovely Pepa"
-          src={image}
-          alt="Imagen de la bloguera Lovely Peppa"
-        />
-        <BloggerBox
-          name="Lovely Pepa"
-          src={image}
-          alt="Imagen de la bloguera Lovely Peppa"
-        />
-        <BloggerBox
-          name="Lovely Pepa"
-          src={image}
-          alt="Imagen de la bloguera Lovely Peppa"
-        />
+        {filteredBloggers.map(blogger => {
+          return (
+            <BloggerBox
+              key={blogger.id}
+              name={blogger.fields.blog_name}
+              src={blogger.fields.image[0].url}
+              alt={blogger.fields.blog_name}
+            />
+          );
+        })}
       </section>
     );
   }
 }
 export default ListOfBloggers;
+
+BloggerBox.propTypes = {
+  filteredBloggers: PropTypes.array
+};

@@ -27,6 +27,7 @@
   font-family: var(--second-font);
   font-size: 1.8rem;
   color: var(--color-text);
+  text-transform: capitalize;
 }
 .ListOfBloggers__BloggerBox a:hover h2 {
   color: var(--color-second);
