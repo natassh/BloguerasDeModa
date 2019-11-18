@@ -14,5 +14,5 @@ export default MessageError;
 
 MessageError.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node
+  errorMessage: PropTypes.string
 };

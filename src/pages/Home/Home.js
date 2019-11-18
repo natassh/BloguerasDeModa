@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Title from '../../Components/Atoms/Title';
 import BloggerSearchForm from '../../Components/Molecules/BloggerSearchForm';
@@ -45,23 +44,24 @@ class Home extends React.Component {
           name.toUpperCase().includes(blogger.toUpperCase()))
       ) {
         listBloggersFiltered.push(bloggerFiltered);
-      } else {
-        const message = 'Ups, a esa chica no la tenemos. Prueba a buscar otra!';
-        this.setState({ errorMessage: message });
       }
     });
+    if (listBloggersFiltered.length <= 0) {
+      const message = 'Ups, a esa chica no la tenemos. Prueba a buscar otra!';
+      this.setState({ errorMessage: message });
+    } else {
+      this.setState({ errorMessage: '' });
+    }
     this.setState({ filteredBloggers: listBloggersFiltered });
   };
 
   render() {
     const { filteredBloggers, errorMessage } = this.state;
-    //console.log(this.state.filteredBloggers);
     return (
       <>
         <Title className="Title">
           <strong>Blogueras</strong> de moda
         </Title>
-        <Link to="/detail">Detalle</Link>
         <BloggerSearchForm onGetBloggerSelected={this.handleBlogger} />
         <ListOfBloggers filteredBloggers={filteredBloggers} />
         {errorMessage !== '' && (
