@@ -1,4 +1,5 @@
 import React from 'react';
+import { endoPointListBloggers } from '../../App/App-config';
 
 import Title from '../../Components/Atoms/Title';
 import BloggerSearchForm from '../../Components/Molecules/BloggerSearchForm';
@@ -16,16 +17,13 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    const app_key = 'app7a24aZSpdSNeO7';
-    const db_name = 'Blogueras';
-    const endoPoint = `https://api.airtable.com/v0/${app_key}/${db_name}`;
     const options = {
       headers: {
         Accept: 'application/json',
         Authorization: 'Bearer keyVRnE63H7lG8smk'
       }
     };
-    fetch(endoPoint, options)
+    fetch(endoPointListBloggers, options)
       .then(res => res.json())
       .then(data => {
         this.setState({ listBloggers: data });
@@ -41,7 +39,8 @@ class Home extends React.Component {
       if (
         typeof blog_name !== 'undefined' &&
         (blog_name.toUpperCase() === blogger.toUpperCase() ||
-          name.toUpperCase().includes(blogger.toUpperCase()))
+          name.toUpperCase().includes(blogger.toUpperCase()) ||
+          blog_name.toUpperCase().includes(blogger.toUpperCase()))
       ) {
         listBloggersFiltered.push(bloggerFiltered);
       }

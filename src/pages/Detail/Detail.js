@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Title from '../../Components/Atoms/Title';
 
+import { app_key } from '../../App/App-config';
+import { db_name } from '../../App/App-config';
+
 import './Detail.css';
 
 class Detail extends React.Component {
@@ -10,16 +13,14 @@ class Detail extends React.Component {
   };
 
   fetchBlogger(idBlogger) {
-    const app_key = 'app7a24aZSpdSNeO7';
-    const db_name = 'Blogueras';
-    const endoPoint = `https://api.airtable.com/v0/${app_key}/${db_name}/${idBlogger}`;
+    const endoPointBloggerDetail = `https://api.airtable.com/v0/${app_key}/${db_name}/${idBlogger}`;
     const options = {
       headers: {
         Accept: 'application/json',
         Authorization: 'Bearer keyVRnE63H7lG8smk'
       }
     };
-    fetch(endoPoint, options)
+    fetch(endoPointBloggerDetail, options)
       .then(res => res.json())
       .then(data => {
         //console.log(data);
