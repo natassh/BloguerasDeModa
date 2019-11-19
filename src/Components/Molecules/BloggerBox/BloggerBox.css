@@ -1,12 +1,13 @@
 .ListOfBloggers__BloggerBox {
-  margin: 0 1rem 2rem 1rem;
+  margin: 0 2rem 2rem 1rem;
   padding: 1.5rem 1rem 1.5rem 1rem;
   background: var(--bg-);
   border: 1px solid #000;
   max-width: 300px;
   overflow: hidden;
+  text-align: center;
 }
-.ListOfBloggers__BloggerBox a {
+.ListOfBloggers a {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +15,7 @@
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 }
-.ListOfBloggers__BloggerBox a:hover {
+.ListOfBloggers a:hover {
   transform: scale(1.1);
 }
 .ListOfBloggers__BloggerBox img {

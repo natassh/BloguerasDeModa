@@ -48,14 +48,15 @@ class Detail extends React.Component {
               />
             </figure>
             <div>
-              <h2>{blogger.fields.name}</h2>
-              <h3>Blog: {blogger.fields.blog_name}</h3>
+              <h2>{blogger.fields.blog_name}</h2>
+              <h3>{blogger.fields.name}</h3>
+              <p>{blogger.fields.description}</p>
+              <Link to={`/`} className="return">
+                Volver al buscador
+              </Link>
             </div>
           </article>
         )}
-        <Link to={`/`} className="return">
-          Volver al buscador
-        </Link>
       </>
     );
   }
