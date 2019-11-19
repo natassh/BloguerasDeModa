@@ -28,7 +28,7 @@ class App extends React.Component {
           <Router>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/detail" component={Detail} />
+              <Route path="/blogger/:id" component={Detail} />
             </Switch>
           </Router>
         </section>

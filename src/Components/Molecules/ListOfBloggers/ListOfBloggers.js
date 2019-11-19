@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
 import BloggerBox from '../BloggerBox';
 
 import './ListOfBloggers.css';
@@ -12,12 +13,14 @@ class ListOfBloggers extends React.Component {
       <section className="ListOfBloggers">
         {filteredBloggers.map(blogger => {
           return (
-            <BloggerBox
-              key={blogger.id}
-              name={blogger.fields.blog_name}
-              src={blogger.fields.image[0].url}
-              alt={blogger.fields.blog_name}
-            />
+            <Link to={`/blogger/${blogger.id}`} key={blogger.id}>
+              <BloggerBox
+                id={blogger.id}
+                name={blogger.fields.blog_name}
+                src={blogger.fields.image[0].url}
+                alt={blogger.fields.blog_name}
+              />
+            </Link>
           );
         })}
       </section>
