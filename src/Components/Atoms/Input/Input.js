@@ -15,7 +15,6 @@ class Input extends React.Component {
     onChange(inputNewValue);
   };
   render() {
-    //console.log(this.state.valueInput);
     return (
       <input
         className="BloggerSearchForm__Input"
