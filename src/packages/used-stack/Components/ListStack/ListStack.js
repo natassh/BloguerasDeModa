@@ -14,7 +14,7 @@ function ListStack() {
         src={imageReact}
         alt="Logo React"
         title="React"
-        content="Desarrollado en React con react-router, gestión de estado local, Componentes de tipo clase (cuando juego con el estado) y también funcionales. Uso dos librerías de terceros que son react-select y marvina-carousel-react."
+        content="Proyecto desarrollado en React con react-router, gestión de estado local, Componentes de tipo clase (cuando juego con el estado) y también funcionales."
       />
       <ItemListStack
         src={imageCss}
