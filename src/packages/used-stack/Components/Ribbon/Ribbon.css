@@ -25,11 +25,9 @@
   background-color: var(--color-second);
   transform: scale(1.1);
 }
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 660px) {
   .stack__title {
-    padding: 0.2rem;
-    font-size: 0.87rem;
+    font-size: 0.6rem;
   }
 }
 @media screen and (max-width: 465px) {

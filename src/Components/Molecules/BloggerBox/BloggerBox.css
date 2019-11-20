@@ -33,3 +33,36 @@
 .ListOfBloggers__BloggerBox a:hover h2 {
   color: var(--color-second);
 }
+@media screen and (max-width: 660px) {
+  .BoxDetail h2 {
+    font-size: 1.7rem;
+  }
+  .BoxDetail h3 {
+    font-size: 1.3rem;
+  }
+  .BoxDetail {
+    padding: 2.5rem 2rem 2.5rem 2rem !important;
+    max-width: 100% !important;
+    border: none !important;
+  }
+  .BoxDetail figure {
+    padding: 0;
+    margin: 0;
+    margin-right: 1rem;
+  }
+}
+@media screen and (max-width: 530px) {
+  .ListOfBloggers__BloggerBox h2 {
+    font-size: 1.3rem;
+  }
+  .BoxDetail {
+    flex-direction: column;
+  }
+  .BoxDetail figure {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .BoxDetail > div {
+    max-width: 90% !important;
+  }
+}

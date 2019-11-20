@@ -5,3 +5,19 @@
   padding: 3rem 2rem 3rem 2rem;
   margin-bottom: 3rem;
 }
+@media screen and (max-width: 860px) {
+  .BloggerSearchForm {
+    margin-bottom: 1rem;
+  }
+  .BloggerSearchForm__Input {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 660px) {
+  .BloggerSearchForm {
+    padding: 2rem 2rem 3rem 2rem;
+  }
+  .BloggerSearchForm__Input {
+    width: 65%;
+  }
+}

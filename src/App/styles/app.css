@@ -25,3 +25,18 @@ body:before {
   position: relative;
   z-index: 100;
 }
+@media screen and (max-width: 1024px) {
+  body {
+    position: static;
+  }
+}
+@media screen and (max-width: 530px) {
+  body:before {
+    top: 4rem;
+  }
+}
+@media screen and (max-width: 440px) {
+  body:before {
+    top: 14rem;
+  }
+}
