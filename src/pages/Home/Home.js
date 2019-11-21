@@ -1,11 +1,10 @@
 import React from 'react';
-import { getListBloggers } from '../../service/getListBloggers';
-//import { endoPointListBloggers } from '../../App/App-config';
+import { getListBloggers } from '../../core/services/api';
 
-import Title from '../../Components/Atoms/Title';
-import BloggerSearchForm from '../../Components/Molecules/BloggerSearchForm';
-import ListOfBloggers from '../../Components/Molecules/ListOfBloggers';
-import MessageError from '../../Components/Atoms/MessageError';
+import Title from '../../ui/Components/Atoms/Title';
+import BloggerSearchForm from '../../ui/Components/Molecules/BloggerSearchForm';
+import ListOfBloggers from '../../ui/Components/Molecules/ListOfBloggers';
+import MessageError from '../../ui/Components/Atoms/MessageError';
 
 import '../../App/styles/app.css';
 import './Home.css';
@@ -18,15 +17,7 @@ class Home extends React.Component {
   };
 
   async componentDidMount() {
-    // CASO 1
-    // const data = getListBloggers();
-    // data.then(data => {
-    //   console.log(data);
-    //   this.setState({ listBloggers: data });
-    // });
-    // caso2 con  async componentDidMount() {
     const data = await getListBloggers();
-    console.log(data);
     this.setState({ listBloggers: data });
   }
 

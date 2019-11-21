@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Title from '../../Components/Atoms/Title';
+import { getDetailBlogger } from '../../core/services/api';
 
-// import { app_key } from '../../App/App-config';
-// import { db_name } from '../../App/App-config';
-import { getDetailBlogger } from '../../service/getDetailBlogger';
+import Title from '../../ui/Components/Atoms/Title';
 
 import './Detail.css';
 
@@ -15,7 +13,6 @@ class Detail extends React.Component {
 
   async fetchBlogger(idBlogger) {
     const data = await getDetailBlogger(idBlogger);
-    console.log(data);
     this.setState({ blogger: data });
   }
 

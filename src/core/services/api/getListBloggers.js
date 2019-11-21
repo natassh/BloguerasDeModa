@@ -1,4 +1,4 @@
-import { endoPointListBloggers } from '../App/App-config';
+import { endoPointListBloggers } from '../../../App/App-config';
 
 const getListBloggers = () => {
   const options = {
