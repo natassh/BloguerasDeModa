@@ -1,5 +1,6 @@
 import React from 'react';
-import { endoPointListBloggers } from '../../App/App-config';
+import { getListBloggers } from '../../service/getListBloggers';
+//import { endoPointListBloggers } from '../../App/App-config';
 
 import Title from '../../Components/Atoms/Title';
 import BloggerSearchForm from '../../Components/Molecules/BloggerSearchForm';
@@ -16,18 +17,17 @@ class Home extends React.Component {
     errorMessage: ''
   };
 
-  componentDidMount() {
-    const options = {
-      headers: {
-        Accept: 'application/json',
-        Authorization: 'Bearer keyVRnE63H7lG8smk'
-      }
-    };
-    fetch(endoPointListBloggers, options)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ listBloggers: data });
-      });
+  async componentDidMount() {
+    // CASO 1
+    // const data = getListBloggers();
+    // data.then(data => {
+    //   console.log(data);
+    //   this.setState({ listBloggers: data });
+    // });
+    // caso2 con  async componentDidMount() {
+    const data = await getListBloggers();
+    console.log(data);
+    this.setState({ listBloggers: data });
   }
 
   handleBlogger = blogger => {

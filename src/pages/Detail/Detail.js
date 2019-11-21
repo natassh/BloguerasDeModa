@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Title from '../../Components/Atoms/Title';
 
-import { app_key } from '../../App/App-config';
-import { db_name } from '../../App/App-config';
+// import { app_key } from '../../App/App-config';
+// import { db_name } from '../../App/App-config';
+import { getDetailBlogger } from '../../service/getDetailBlogger';
 
 import './Detail.css';
 
@@ -12,23 +13,13 @@ class Detail extends React.Component {
     blogger: {}
   };
 
-  fetchBlogger(idBlogger) {
-    const endoPointBloggerDetail = `https://api.airtable.com/v0/${app_key}/${db_name}/${idBlogger}`;
-    const options = {
-      headers: {
-        Accept: 'application/json',
-        Authorization: 'Bearer keyVRnE63H7lG8smk'
-      }
-    };
-    fetch(endoPointBloggerDetail, options)
-      .then(res => res.json())
-      .then(data => {
-        //console.log(data);
-        this.setState({ blogger: data });
-      });
+  async fetchBlogger(idBlogger) {
+    const data = await getDetailBlogger(idBlogger);
+    console.log(data);
+    this.setState({ blogger: data });
   }
+
   componentDidMount() {
-    //console.log(this.props);
     const id = this.props.match.params.id;
     this.fetchBlogger(id);
   }
