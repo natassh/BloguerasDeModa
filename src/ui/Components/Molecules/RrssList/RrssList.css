@@ -1,0 +1,8 @@
+.rrssList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}

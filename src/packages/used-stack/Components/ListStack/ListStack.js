@@ -14,7 +14,7 @@ function ListStack() {
         src={imageReact}
         alt="Logo React"
         title="React"
-        content="Proyecto desarrollado en React con consulta a la base de datos de Airtable. React-router, gestión de estado local, Componentes de tipo clase (cuando juego con el estado) y también funcionales."
+        content="Proyecto desarrollado en React con consulta a la base de datos de Airtable. React-router, gestión de estado local, Componentes de tipo clase (cuando juego con el estado) y también funcionales. Uso la libreria react-fontawesome."
       />
       <ItemListStack
         src={imageCss}

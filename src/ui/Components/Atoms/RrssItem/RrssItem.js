@@ -24,5 +24,4 @@ export default RrssItem;
 RrssItem.propTypes = {
   className: PropTypes.string,
   href: PropTypes.string
-  //children: PropTypes.string
 };
