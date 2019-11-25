@@ -1,10 +1,10 @@
 import React from 'react';
-import { getListBloggers } from '../../core/services/api';
+import { getListBloggers } from '../../../core/services/api';
 
-import Title from '../../ui/Components/Atoms/Title';
-import BloggerSearchForm from '../../ui/Components/Molecules/BloggerSearchForm';
-import ListOfBloggers from '../../ui/Components/Molecules/ListOfBloggers';
-import MessageError from '../../ui/Components/Atoms/MessageError';
+import Title from '../../Components/Atoms/Title';
+import BloggerSearchForm from '../../Components/Molecules/BloggerSearchForm';
+import ListOfBloggers from '../../Components/Molecules/ListOfBloggers';
+import MessageError from '../../Components/Atoms/MessageError';
 
 import '../../App/styles/app.css';
 import './Home.css';

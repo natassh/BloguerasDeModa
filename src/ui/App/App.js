@@ -4,8 +4,8 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Home from '../pages/Home/Home';
 import Detail from '../pages/Detail/Detail';
 
-import Ribbon from '../packages/used-stack/Components/Ribbon/Ribbon';
-import Modal from '../packages/used-stack/Components/Modal/Modal';
+import Ribbon from '../../packages/used-stack/Components/Ribbon/Ribbon';
+import Modal from '../../packages/used-stack/Components/Modal/Modal';
 
 import './styles/app.css';
 

@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBlog } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
-import { faYoutube } from '@fortawesome/free-brands-svg-icons';
+import {
+  faInstagram,
+  faFacebookF,
+  faYoutube
+} from '@fortawesome/free-brands-svg-icons';
 
 import RrssItem from '../../Atoms/RrssItem';
 
-import './RrssList.css';
+import './SocialLinks.css';
 
-class RrssList extends React.Component {
+class SocialLinks extends React.Component {
   render() {
     const { rrssBlogger } = this.props;
     return (
@@ -41,8 +43,8 @@ class RrssList extends React.Component {
   }
 }
 
-export default RrssList;
+export default SocialLinks;
 
-RrssList.propTypes = {
+SocialLinks.propTypes = {
   rrssBlogger: PropTypes.object
 };

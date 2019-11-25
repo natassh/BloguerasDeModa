@@ -1,15 +1,15 @@
-import { app_key } from '../../../App/App-config';
-import { db_datos_redes_sociales } from '../../../App/App-config';
+import {
+  app_key,
+  db_datos_redes_sociales,
+  AuthOptions
+} from './config/api-config';
 
 const getDetailRRSSBlogger = idBlogger => {
   const endoPointBloggerDetailRRSS = `https://api.airtable.com/v0/${app_key}/${db_datos_redes_sociales}/${idBlogger}`;
-  const options = {
-    headers: {
-      Accept: 'application/json',
-      Authorization: 'Bearer keyVRnE63H7lG8smk'
-    }
-  };
-  const rrssBloggerResponseObject = fetch(endoPointBloggerDetailRRSS, options);
+  const rrssBloggerResponseObject = fetch(
+    endoPointBloggerDetailRRSS,
+    AuthOptions
+  );
   const rrssdetailBloggerJsonPromise = rrssBloggerResponseObject.then(res =>
     res.json()
   );
