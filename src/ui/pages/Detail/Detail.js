@@ -48,7 +48,7 @@ const Detail = () => {
     const data = await getDetailBlogger(idBlogger);
     // setState({ blogger: data });
     // Get data rrss blogger
-    const rrssID = data.fields.datos_redes_sociales;
+    const rrssID = data.datos_redes_sociales;
     const rrssData = await getDetailRRSSBlogger(rrssID);
     setState({ rrssBlogger: rrssData, blogger: data });
   };
@@ -62,12 +62,12 @@ const Detail = () => {
       {Object.keys(blogger).length > 0 && (
         <article className="BoxDetail">
           <figure>
-            <img src={blogger.fields.image[0].url} alt={blogger.fields.name} />
+            <img src={blogger.image[0].url} alt={blogger.name} />
           </figure>
           <div>
-            <h2>{blogger.fields.blog_name}</h2>
-            <h3>{blogger.fields.name}</h3>
-            <p>{blogger.fields.description}</p>
+            <h2>{blogger.blog_name}</h2>
+            <h3>{blogger.name}</h3>
+            <p>{blogger.description}</p>
             {Object.keys(rrssBlogger).length > 0 && (
               <SocialLinks rrssBlogger={rrssBlogger} />
             )}

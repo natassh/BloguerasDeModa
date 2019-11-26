@@ -9,7 +9,7 @@ const getDetailBlogger = idBlogger => {
   const detailBloggerJsonPromise = detailBloggerResponseObject.then(res =>
     res.json()
   );
-  const detailBloggerData = detailBloggerJsonPromise.then(data => data);
+  const detailBloggerData = detailBloggerJsonPromise.then(data => data.fields);
   return detailBloggerData;
 };
 
