@@ -11,8 +11,6 @@ import SocialLinks from '../../Components/Molecules/SocialLinks';
 import './Detail.css';
 
 const Detail = () => {
-  //const [nombreState, funcionCambaiarVAlorEstado] = useState( valoeInoicial estado si queremo);
-
   const [state, setState] = useState({
     blogger: {},
     rrssBlogger: {}
@@ -20,40 +18,20 @@ const Detail = () => {
 
   const { id } = useParams();
 
-  // por rendimiento, useState, puede recibir una función que su return es lo que mete en el stado, se usa por rendimienbtgo
-  // const [state, setState] = useState( () => {{
-  //   blogger: {},
-  //   rrssBlogger: ''
-  // }});
-
-  // state = {
-  //   blogger: {},
-  //   rrssBlogger: ''
-  // };
-
-  // componentDidMount() {
-  //   const id = this.props.match.params.id;
-  //   this.getDataBlogger(id);
-  // }
-
   useEffect(() => {
     getDataBlogger(id);
-    return () => {
-      console.log('cuando el componente se desmonta');
-    };
   }, [id]);
 
   const getDataBlogger = async idBlogger => {
     // Get data detail blogger
     const data = await getDetailBlogger(idBlogger);
-    // setState({ blogger: data });
     // Get data rrss blogger
     const rrssID = data.datos_redes_sociales;
     const rrssData = await getDetailRRSSBlogger(rrssID);
     setState({ rrssBlogger: rrssData, blogger: data });
   };
 
-  const { blogger, rrssBlogger } = state; // this.state pasa a ser state
+  const { blogger, rrssBlogger } = state;
   return (
     <>
       <Title className="Title">

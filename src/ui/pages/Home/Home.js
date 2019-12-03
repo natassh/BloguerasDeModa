@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { getListBloggers } from '../../../core/services/api';
 
 import Title from '../../Components/Atoms/Title';
@@ -9,20 +9,28 @@ import MessageError from '../../Components/Atoms/MessageError';
 import '../../App/styles/app.css';
 import './Home.css';
 
-class Home extends React.Component {
-  state = {
-    listBloggers: [],
+const Home = () => {
+  const [state, setState] = useState({
+    listBloggers: {},
     filteredBloggers: [],
     errorMessage: ''
-  };
+  });
 
-  async componentDidMount() {
-    const data = await getListBloggers();
-    this.setState({ listBloggers: data });
-  }
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getListBloggers();
+      setState({
+        ...state,
+        listBloggers: data
+      });
+    }
+    if (Object.entries(state.listBloggers).length === 0) {
+      fetchData();
+    }
+  }, [state]);
 
-  handleBlogger = blogger => {
-    const { listBloggers } = this.state;
+  const handleBlogger = blogger => {
+    const { listBloggers } = state;
     const listBloggersFiltered = [];
     listBloggers.records.forEach(bloggerFiltered => {
       const blog_name = bloggerFiltered.fields.blog_name;
@@ -36,29 +44,31 @@ class Home extends React.Component {
         listBloggersFiltered.push(bloggerFiltered);
       }
     });
+    let errorMessageText = '';
     if (listBloggersFiltered.length <= 0) {
-      const message = 'Ups, a esa chica no la tenemos. Prueba a buscar otra!';
-      this.setState({ errorMessage: message });
-    } else {
-      this.setState({ errorMessage: '' });
+      errorMessageText =
+        'Ups, a esa chica no la tenemos. Prueba a buscar otra!';
     }
-    this.setState({ filteredBloggers: listBloggersFiltered });
+    setState({
+      ...state,
+      errorMessage: errorMessageText,
+      filteredBloggers: listBloggersFiltered
+    });
   };
 
-  render() {
-    const { filteredBloggers, errorMessage } = this.state;
-    return (
-      <>
-        <Title className="Title">
-          <strong>Blogueras</strong> de moda
-        </Title>
-        <BloggerSearchForm onGetBloggerSelected={this.handleBlogger} />
-        <ListOfBloggers filteredBloggers={filteredBloggers} />
-        {errorMessage !== '' && (
-          <MessageError errorMessage={errorMessage} className="MessageError" />
-        )}
-      </>
-    );
-  }
-}
+  const { filteredBloggers, errorMessage } = state;
+  return (
+    <>
+      <Title className="Title">
+        <strong>Blogueras</strong> de moda
+      </Title>
+      <BloggerSearchForm onGetBloggerSelected={handleBlogger} />
+      <ListOfBloggers filteredBloggers={filteredBloggers} />
+      {errorMessage !== '' && (
+        <MessageError errorMessage={errorMessage} className="MessageError" />
+      )}
+    </>
+  );
+};
+
 export default Home;

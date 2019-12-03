@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 
 import Home from '../pages/Home/Home';
@@ -9,34 +9,33 @@ import Modal from '../../packages/used-stack/Components/Modal/Modal';
 
 import './styles/app.css';
 
-class App extends React.Component {
-  state = {
-    isOpen: ''
-  };
-  handleIsOpen = value => {
-    this.setState({ isOpen: value });
+const App = () => {
+  const [state, setState] = useState({
+    isOpen: false
+  });
+
+  const handleIsOpen = value => {
+    setState({ isOpen: value });
   };
 
-  handleCloseModal = () => {
-    this.setState({ isOpen: false });
+  const handleCloseModal = () => {
+    setState({ isOpen: false });
   };
 
-  render() {
-    return (
-      <div className="App">
-        <section>
-          <Router>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/blogger/:id" component={Detail} />
-            </Switch>
-          </Router>
-        </section>
-        <Ribbon text="Used stack" onChange={this.handleIsOpen} />
-        {this.state.isOpen && <Modal onClose={this.handleCloseModal} />}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="App">
+      <section>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/blogger/:id" component={Detail} />
+          </Switch>
+        </Router>
+      </section>
+      <Ribbon text="Used stack" onChange={handleIsOpen} />
+      {state.isOpen && <Modal onClose={handleCloseModal} />}
+    </div>
+  );
+};
 
 export default App;

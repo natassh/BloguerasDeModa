@@ -6,27 +6,23 @@ import BloggerBox from '../BloggerBox';
 
 import './ListOfBloggers.css';
 
-class ListOfBloggers extends React.Component {
-  render() {
-    const { filteredBloggers } = this.props;
-    return (
-      <section className="ListOfBloggers">
-        {filteredBloggers.map(blogger => {
-          return (
-            <Link to={`/blogger/${blogger.id}`} key={blogger.id}>
-              <BloggerBox
-                id={blogger.id}
-                name={blogger.fields.blog_name}
-                src={blogger.fields.image[0].url}
-                alt={blogger.fields.blog_name}
-              />
-            </Link>
-          );
-        })}
-      </section>
-    );
-  }
-}
+const ListOfBloggers = ({ filteredBloggers }) => (
+  <section className="ListOfBloggers">
+    {filteredBloggers.map(blogger => {
+      return (
+        <Link to={`/blogger/${blogger.id}`} key={blogger.id}>
+          <BloggerBox
+            id={blogger.id}
+            name={blogger.fields.blog_name}
+            src={blogger.fields.image[0].url}
+            alt={blogger.fields.blog_name}
+          />
+        </Link>
+      );
+    })}
+  </section>
+);
+
 export default ListOfBloggers;
 
 BloggerBox.propTypes = {

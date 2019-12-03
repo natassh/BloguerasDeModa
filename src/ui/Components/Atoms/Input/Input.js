@@ -1,34 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './Input.css';
 
-class Input extends React.Component {
-  state = {
+const Input = ({ onChange }) => {
+  const [state, setState] = useState({
     valueInput: ''
-  };
-  handleChange = e => {
-    const inputNewValue = e.target.value;
-    this.setState({ valueInput: inputNewValue });
+  });
 
-    const { onChange } = this.props;
+  const handleChange = e => {
+    const inputNewValue = e.target.value;
+    setState({ valueInput: inputNewValue });
+
     onChange(inputNewValue);
   };
-  render() {
-    return (
-      <input
-        className="BloggerSearchForm__Input"
-        type="text"
-        placeholder="Introduce el nombre de la bloguera"
-        value={this.state.valueInput}
-        onChange={this.handleChange}
-      />
-    );
-  }
-}
+
+  return (
+    <input
+      className="BloggerSearchForm__Input"
+      type="text"
+      placeholder="Introduce el nombre de la bloguera"
+      value={state.valueInput}
+      onChange={handleChange}
+    />
+  );
+};
 
 export default Input;
 
 Input.propTypes = {
-  inputChanged: PropTypes.func
+  onChange: PropTypes.func
 };
